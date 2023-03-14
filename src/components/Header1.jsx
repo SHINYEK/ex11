@@ -14,7 +14,7 @@ const Header1 = ({history}) => {
   return (
     <>
     <img src="https://product-image.kurly.com/cdn-cgi/image/quality=85/banner/main/pc/img/e6bbfa0b-004d-4b9c-923b-02c4521af50d.jpg" style={{width:'100%'}}/>
-      <Navbar bg="primary" variant="dark" className='header'>
+      <Navbar bg="dark" variant="dark" className='header'>
         <NavLink to='/'>Home</NavLink>
         <NavLink to='/users'>회원목록</NavLink>       
         {email?

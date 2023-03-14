@@ -5,6 +5,7 @@ import {getAuth,createUserWithEmailAndPassword} from 'firebase/auth'
 import {getFirestore,setDoc,doc} from 'firebase/firestore'
 
 const Join = ({history}) => {
+    const [loading,setLoading] = useState(false);
     const auth = getAuth(app);
     const db = getFirestore(app);
 
@@ -25,10 +26,11 @@ const Join = ({history}) => {
     const onSubmit =(e)=>{
         e.preventDefault();
         console.log(form);
+        setLoading(true)
         createUserWithEmailAndPassword(auth,email,password)
         .then((success)=>{
             if(!window.confirm("회원 가입하시겠습니까?")) return;
-            alert("회원가입 성공!");
+
             //유저정보 저장
             setDoc(doc(db,'/users',email),{
                 email:email,
@@ -36,12 +38,16 @@ const Join = ({history}) => {
                 address:'',
                 photo:''
             })
+            setLoading(false)
+            alert("회원가입 성공!");
             history.push('/login')
         })  
         .catch((error)=>{
             alert("회원가입 실패!"+error.message)
+            setLoading(false)
         })
     }
+    if(loading) return <h1>Loading......</h1>
   return (
     <Row className='m-5 justify-content-center'>
         <Col md={4}>

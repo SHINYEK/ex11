@@ -7,6 +7,8 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Header1 from './components/Header1';
 import Join from './components/Join';
+import Mypage from './components/Mypage';
+import Users from './components/Users';
 
 function App() {
   return (
@@ -15,7 +17,9 @@ function App() {
       <Switch>
         <Route path='/' component={Home} exact={true}></Route>     
         <Route path='/login' component={Login}></Route> 
-        <Route path='/join' component={Join}></Route>     
+        <Route path='/join' component={Join}></Route> 
+        <Route path='/mypage' component={Mypage}></Route>      
+        <Route path='/users' component={Users}></Route>      
       </Switch>
 
     </div>
