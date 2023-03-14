@@ -6,3 +6,17 @@
 h1{
   margin-top: 20px;
 }
+
+.header{
+  padding-left: 100px;
+}
+
+.header a{
+  color: white;
+  text-decoration: none;
+  padding: 10px 20px;
+}
+
+.header a:hover{
+  color: skyblue;
+}
